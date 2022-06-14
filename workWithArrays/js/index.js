@@ -23,26 +23,42 @@ function arrayGenerator(myArray, quantity = 10) {
         myArray.push(newNumber)
     }
     return myArray
-} 
+}
 
 function eduSorting(myArray, even, uneven) {
 }
 
 function arrayChecking(even, uneven) {
+    let
+        resultWindow = document.querySelector('.result'),
+        info = document.createElement('div')
+        text = document.createElement('p')
+        text2 = document.createElement('p')
     if (even.length !== 0 || uneven.length !== 0) {
         if (even.length > 0) {
-            console.log('Массив чётных чисел - ' + even)
+            text.innerHTML = 'Массив чётных чисел - ' + even + ', '
+            info.append(text)
         } else {
-            console.log('Чётных чисел нет')
+            text.innerHTML = 'Чётных чисел нет' +
+            info.append(text)
         }
         if (uneven.length > 0) {
-            console.log('Массив нечётных чисел - ' + uneven)
+            text2.innerHTML = 'Массив нечётных чисел - ' + uneven
+            info.append(text2)
         } else {
-            console.log('Нечётных чисел нет')
+            text2.innerHTML = 'Нечётных чисел нет'
+            info.append(text2)
         }
     } else {
-        console.log('Длинна двух массивов не может быть равна 0')
+        text.innerHTML = 'Длинна двух массивов не может быть равна 0'
+        info.append(text)
     }
+    resultWindow.append(info)
 }
 
-arraySorting()
+function enableButton() {
+    const checkButton = document.querySelector('.checkButton')
+    checkButton.addEventListener('mouseup', arraySorting)
+}
+
+enableButton()
